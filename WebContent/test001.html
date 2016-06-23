@@ -28,7 +28,7 @@
 	// jQuery
 	$('#blueButton').on('click', function(event){
 		var newDiv = $('<div>').text('青ボタンが押されました。');
-		$('body').append(newDiv);
+		newDiv.appendTo('body');
 	});
 </script>
 </body>
