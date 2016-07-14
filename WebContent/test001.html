@@ -4,17 +4,22 @@
 <meta charset="UTF-8">
 <title>test001</title>
 <style type="text/css">
+	#area1 {
+		background-color: yellow;
+		border: 1px solid;
+		border-color: orange;
+	}
 	.red {background-color: red;}
  	.blue {background-color: blue;}
 </style>
 </head>
 <body>
-	<div>
+	<div id="area1">
 		<button class="red" id="redButton">赤ボタン</button>
 		<button class="blue" id="blueButton">青ボタン</button>
 	</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 <script type="text/javascript">
 
 	// javascript
@@ -22,13 +27,13 @@
 	redButton.addEventListener('click', function(event){
 		var newDiv = document.createElement('div');
 		newDiv.innerHTML = '赤ボタンが押されました。';
-		document.body.appendChild(newDiv);
+		document.getElementById('area1').appendChild(newDiv);
 	}, false);
 
 	// jQuery
 	$('#blueButton').on('click', function(event){
 		var newDiv = $('<div>').text('青ボタンが押されました。');
-		newDiv.appendTo('body');
+		newDiv.appendTo('#area1');
 	});
 </script>
 </body>
