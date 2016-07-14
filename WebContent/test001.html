@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>test001</title>
 <style type="text/css">
-	#area1 {
+	#area1, #area2 {
+		margin-top: 10px;
 		background-color: yellow;
 		border: 1px solid;
 		border-color: orange;
@@ -18,11 +19,19 @@
 		<button class="red" id="redButton">赤ボタン</button>
 		<button class="blue" id="blueButton">青ボタン</button>
 	</div>
+	<div id="area2">
+		<input type="text" id="newName" />
+		<button type="button" id="addButton">追加</button>
+		<select id="selectBox">
+		  <option>要素1</option>
+		  <option>要素2</option>
+		</select>
+	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 <script type="text/javascript">
 
-	// javascript
+	// area1 javascript
 	var redButton = document.getElementById('redButton');
 	redButton.addEventListener('click', function(event){
 		var newDiv = document.createElement('div');
@@ -30,11 +39,20 @@
 		document.getElementById('area1').appendChild(newDiv);
 	}, false);
 
-	// jQuery
+	// area1 jQuery
 	$('#blueButton').on('click', function(event){
 		var newDiv = $('<div>').text('青ボタンが押されました。');
 		newDiv.appendTo('#area1');
 	});
+
+	// area2 jQuery
+	$('#addButton').on('click', function(event){
+		var newOption = $('<option>'),
+			newNameText = $('#newName').val();
+		newOption.text(newNameText);
+		newOption.appendTo('#selectBox');
+	});
+
 </script>
 </body>
 </html>
